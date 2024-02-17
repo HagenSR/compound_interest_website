@@ -1,0 +1,47 @@
+<p-card header="Compounding interest calculator">
+  <div class="wrapper m-0"
+       [formGroup]="form">
+    <span class="p-float-label">
+      <p-inputNumber inputId="current-principal"
+                     mode="currency"
+                     currency="USD"
+                     locale="en-US"
+                     formControlName="currentPrincipal">
+      </p-inputNumber>
+      <label for="current-principal">Current Principal:</label>
+    </span>
+    <span class="p-float-label">
+      <p-inputNumber inputId="annual-addition"
+                     mode="currency"
+                     currency="USD"
+                     locale="en-US"
+                     formControlName="annualAddition">
+      </p-inputNumber>
+      <label for="annual-addition">Annual Addition</label>
+    </span>
+    <span class="p-float-label">
+      <p-inputNumber inputId="years"
+                     [min]="1"
+                     [max]="100"
+                     formControlName="yearsToGrow">
+      </p-inputNumber>
+      <label for="years">Years to grow: </label>
+    </span>
+    <span class="p-float-label">
+      <p-inputNumber inputId="interest-rate"
+                     prefix="%"
+                     mode="decimal"
+                     [minFractionDigits]="0"
+                     [maxFractionDigits]="5"
+                     [min]="0"
+                     [max]="100"
+                     formControlName="interestRate">
+      </p-inputNumber>
+      <label for="interest-rate">Interest Rate: </label>
+    </span>
+
+    <span class="p-float-label">
+      <label for="interest-rate">Result: {{resultingValue$ | async}}</label>
+    </span>
+  </div>
+</p-card>
