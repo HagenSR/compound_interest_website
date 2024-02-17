@@ -1,1 +1,14 @@
-<app-compound-interest-leg></app-compound-interest-leg>
+<ng-container *ngFor="let id of ids">
+    <app-compound-interest-leg [id]="id"
+                               class="padding">
+    </app-compound-interest-leg>
+</ng-container>
+
+<div class="padding"></div>
+
+<p-button label="Add simulation"
+          class="container"
+          (click)="addSimulation()">
+</p-button>
+
+<app-chart></app-chart>

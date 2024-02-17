@@ -1,6 +1,6 @@
 import { TestBed } from '@angular/core/testing';
-
 import { CompoundInterestService } from './compound-interest.service';
+
 
 describe('CompoundInterestService', () => {
   let service: CompoundInterestService;

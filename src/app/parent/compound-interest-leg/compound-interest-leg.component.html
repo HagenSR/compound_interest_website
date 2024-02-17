@@ -1,4 +1,4 @@
-<p-card header="Compounding interest calculator">
+<p-card [header]="header">
   <div class="wrapper m-0"
        [formGroup]="form">
     <span class="p-float-label">
@@ -41,7 +41,7 @@
     </span>
 
     <span class="p-float-label">
-      <label for="interest-rate">Result: {{resultingValue$ | async}}</label>
+      <label for="interest-rate">Result: {{resultingValue$ | async | currency}}</label>
     </span>
   </div>
 </p-card>
