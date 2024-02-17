@@ -1,4 +1,11 @@
 .wrapper {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+}
+
+@media (max-width: 600px) {
+  span {
+    flex: 1 1 auto;
   }
+}

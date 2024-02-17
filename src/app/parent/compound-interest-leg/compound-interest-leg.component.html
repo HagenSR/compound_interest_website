@@ -1,6 +1,7 @@
 <p-card [header]="header">
   <div class="wrapper m-0"
        [formGroup]="form">
+
     <span class="p-float-label">
       <p-inputNumber inputId="current-principal"
                      mode="currency"
@@ -10,6 +11,7 @@
       </p-inputNumber>
       <label for="current-principal">Current Principal:</label>
     </span>
+
     <span class="p-float-label">
       <p-inputNumber inputId="annual-addition"
                      mode="currency"
@@ -19,6 +21,7 @@
       </p-inputNumber>
       <label for="annual-addition">Annual Addition</label>
     </span>
+
     <span class="p-float-label">
       <p-inputNumber inputId="years"
                      [min]="1"
@@ -27,6 +30,7 @@
       </p-inputNumber>
       <label for="years">Years to grow: </label>
     </span>
+
     <span class="p-float-label">
       <p-inputNumber inputId="interest-rate"
                      prefix="%"
@@ -40,8 +44,9 @@
       <label for="interest-rate">Interest Rate: </label>
     </span>
 
-    <span class="p-float-label">
-      <label for="interest-rate">Result: {{resultingValue$ | async | currency}}</label>
+    <span>
+      Result: {{resultingValue$ | async | currency}}
     </span>
+
   </div>
 </p-card>
