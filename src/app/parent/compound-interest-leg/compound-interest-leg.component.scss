@@ -2,10 +2,19 @@
   display: flex;
   flex-flow: row wrap;
   justify-content: space-between;
+  align-items: flex-end;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 1200px) {
   span {
     flex: 1 1 auto;
+  }
+
+  .wrapper {
+    display: flex;
+    flex-flow: column;
+    justify-content: space-between;
+    align-items: baseline;
+    height: 20rem;
   }
 }

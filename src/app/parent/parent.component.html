@@ -1,3 +1,7 @@
+<form [formGroup]="modeForm">
+    <p-dropdown formControlName="mode" [options]="options" optionLabel="label"></p-dropdown>
+</form>
+
 <ng-container *ngFor="let id of ids">
     <app-compound-interest-leg [id]="id"
                                class="padding">
