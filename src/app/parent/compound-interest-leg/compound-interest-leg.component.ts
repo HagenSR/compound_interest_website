@@ -1,8 +1,8 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, Input, OnInit } from '@angular/core';
 import { InputNumberModule } from 'primeng/inputnumber';
 import { CardModule } from 'primeng/card';
 import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
-import { Observable, filter, map, tap, combineLatestWith, startWith, Subscription } from 'rxjs';
+import { Observable, filter, map, tap, combineLatestWith, startWith, Subscription, delay } from 'rxjs';
 import { CompoundInterestCalculation } from 'src/shared/models/compound-interest-calculation.model';
 import { CompoundInterestService } from 'src/shared/services/compound-interest/compound-interest.service';
 import { AsyncPipe, CurrencyPipe } from '@angular/common';
@@ -39,7 +39,7 @@ export class CompoundInterestLegComponent implements OnInit {
   ngOnInit(): void {
     this.header += this.id
     this.resultingValue$ = this.compoundService.query.selectEntity(this.id).pipe(
-      map((result) => result?.results[result?.results.length - 1]?.balance)
+      map((result) => result?.results[result?.results.length - 1]?.balance),
     );
 
     this.modeService!.currentMode$!.pipe(
@@ -57,6 +57,7 @@ export class CompoundInterestLegComponent implements OnInit {
     ).subscribe()
 
     this.runCalc$ = this.form.valueChanges.pipe(
+      delay(0),
       map(() => this.form.getRawValue()),
       map((formFields) => Object.keys(formFields)
         .reduce((acc, field) => acc && formFields[field as keyof typeof formFields] !== null, true)),
