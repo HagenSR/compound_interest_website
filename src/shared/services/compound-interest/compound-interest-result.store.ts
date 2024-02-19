@@ -3,7 +3,7 @@ import { CompoundInterestResultState } from './compound-interest-result.state';
 import { Injectable } from '@angular/core';
 
 @Injectable({ providedIn: 'root' })
-@StoreConfig({ name: 'session' })
+@StoreConfig({ name: 'session', resettable: true })
 export class CompoundInterestResultStore extends EntityStore<CompoundInterestResultState> {
   constructor() {
     super({})

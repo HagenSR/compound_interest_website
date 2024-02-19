@@ -59,7 +59,7 @@ export class CompoundInterestLegComponent implements OnInit {
     this.runCalc$ = this.form.valueChanges.pipe(
       map(() => this.form.getRawValue()),
       map((formFields) => Object.keys(formFields)
-        .reduce((acc, field) => acc && Boolean(formFields[field as keyof typeof formFields]), true)),
+        .reduce((acc, field) => acc && formFields[field as keyof typeof formFields] !== null, true)),
       filter((bool) => bool),
       tap(() => this.compoundService.runCalculationEveryYear({ ...this.form.getRawValue(), id: this.id } as CompoundInterestCalculation))
     ).subscribe()

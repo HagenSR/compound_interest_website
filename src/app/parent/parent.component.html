@@ -1,18 +1,11 @@
-<form [formGroup]="modeForm">
-    <p-dropdown formControlName="mode" [options]="options" optionLabel="label"></p-dropdown>
-</form>
+<div class="flex-col">
+    <app-settings></app-settings>
 
-<ng-container *ngFor="let id of ids">
-    <app-compound-interest-leg [id]="id"
-                               class="padding">
-    </app-compound-interest-leg>
-</ng-container>
+    <ng-container *ngFor="let id of (ids$ | async)">
+        <app-compound-interest-leg [id]="id"
+                                   class="padding">
+        </app-compound-interest-leg>
+    </ng-container>
 
-<div class="padding"></div>
-
-<p-button label="Add simulation"
-          class="container"
-          (click)="addSimulation()">
-</p-button>
-
-<app-chart></app-chart>
+    <app-chart></app-chart>
+</div>

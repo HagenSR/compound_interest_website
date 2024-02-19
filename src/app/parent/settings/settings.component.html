@@ -1,0 +1,21 @@
+<div class="flex-row">
+    <form [formGroup]="modeForm">
+        <p-dropdown formControlName="mode"
+                    [options]="options"
+                    optionLabel="label">
+        </p-dropdown>
+    </form>
+
+    <p-button label="Add simulation"
+              (click)="addSimulation()">
+    </p-button>
+
+    <p-button label="Reset"
+              (click)="reset()">
+    </p-button>
+
+    <p-toggleButton (click)="changeTheme()"
+                    onLabel="Light"
+                    offLabel="Dark">
+    </p-toggleButton>
+</div>

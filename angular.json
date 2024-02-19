@@ -31,7 +31,17 @@
               "src/manifest.webmanifest"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.scss",
+              {
+                "input": "src/styles/dark_style.scss",
+                "bundleName": "dark_style",
+                "inject": false
+              },
+              {
+                "input": "src/styles/light_style.scss",
+                "bundleName": "light_style",
+                "inject": false
+              }
             ],
             "scripts": [],
             "serviceWorker": true,
@@ -97,7 +107,17 @@
               "src/manifest.webmanifest"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.scss",
+              {
+                "input": "src/styles/dark_style.scss",
+                "bundleName": "dark_style",
+                "inject": false
+              },
+              {
+                "input": "src/styles/light_style.scss",
+                "bundleName": "light_style",
+                "inject": false
+              }
             ],
             "scripts": []
           }
