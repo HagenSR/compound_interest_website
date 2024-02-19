@@ -10,7 +10,7 @@ export class ThemeService {
   }
 
   toggleTheme() {
-    let themeLink = this.doc.getElementById('app-theme') as HTMLLinkElement
+    const themeLink = this.doc.getElementById('app-theme') as HTMLLinkElement
     if (themeLink) {
       themeLink.href = (this.isLight ? 'dark_style.css' : 'light_style.css')
       this.isLight = !this.isLight

@@ -38,7 +38,7 @@ export class CompoundInterestService {
   }
 
   addSimulation() {
-    let curIds = this.simulationIds$.value
+    const curIds = this.simulationIds$.value
     curIds.push(this.curId)
     this.curId += 1
     this.simulationIds$.next(curIds)
