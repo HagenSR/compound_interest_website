@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { CompoundInterestCalculation } from '../../models/compound-interest-calculation.model';
 import { CompoundInterestResultStore } from './compound-interest-result.store';
 import { CompoundInterestResultQuery } from './compound-interest-result.query';
-import { BehaviorSubject, map } from 'rxjs';
+import { BehaviorSubject, delay, map } from 'rxjs';
 import { YearAndBalance } from 'src/shared/models/year-and-balance.model';
 import { CompoundInterestResult } from 'src/shared/models/compound-interest-result.model';
 import { ModeService } from '../mode/mode.service';
@@ -20,6 +20,7 @@ export class CompoundInterestService {
   }
 
   chartData$ = this.query.selectAll().pipe(
+    delay(0),
     map((data) => {
       const years = this.getYears(data)
       const datasets = this.getDatasets(data)

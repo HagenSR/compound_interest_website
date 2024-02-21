@@ -1,8 +1,8 @@
 <div class="flex-col">
     <app-settings></app-settings>
 
-    <ng-container *ngFor="let id of (ids$ | async)">
-        <app-compound-interest-leg [id]="id"
+    <ng-container *ngFor="let _ of (ids$ | async); index as i">
+        <app-compound-interest-leg [id]="i + 1"
                                    class="padding">
         </app-compound-interest-leg>
     </ng-container>

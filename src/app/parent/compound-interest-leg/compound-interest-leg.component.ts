@@ -1,13 +1,14 @@
-import { ChangeDetectorRef, Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { InputNumberModule } from 'primeng/inputnumber';
 import { CardModule } from 'primeng/card';
 import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
-import { Observable, filter, map, tap, combineLatestWith, startWith, Subscription, delay } from 'rxjs';
+import { Observable, filter, map, tap, combineLatestWith, startWith, Subscription, delay, takeUntil } from 'rxjs';
 import { CompoundInterestCalculation } from 'src/shared/models/compound-interest-calculation.model';
 import { CompoundInterestService } from 'src/shared/services/compound-interest/compound-interest.service';
 import { AsyncPipe, CurrencyPipe } from '@angular/common';
 import { ModeService } from 'src/shared/services/mode/mode.service';
 import { Mode } from 'src/shared/enums/mode.enum';
+import { OnDestroyComponent } from 'src/shared/ui/subscriber-base-component';
 
 @Component({
   selector: 'app-compound-interest-leg',
@@ -16,7 +17,7 @@ import { Mode } from 'src/shared/enums/mode.enum';
   templateUrl: './compound-interest-leg.component.html',
   styleUrl: './compound-interest-leg.component.scss'
 })
-export class CompoundInterestLegComponent implements OnInit {
+export class CompoundInterestLegComponent extends OnDestroyComponent implements OnInit {
 
   @Input() id!: number
 
@@ -35,6 +36,7 @@ export class CompoundInterestLegComponent implements OnInit {
   constructor(private readonly formBuilder: FormBuilder,
     private compoundService: CompoundInterestService,
     public modeService: ModeService) {
+    super()
   }
   ngOnInit(): void {
     this.header += this.id
@@ -43,6 +45,8 @@ export class CompoundInterestLegComponent implements OnInit {
     );
 
     this.modeService!.currentMode$!.pipe(
+      takeUntil(this.destroyed$),
+      delay(0),
       startWith(this.modeService.currentMode$.value),
       filter(() => this.id !== 1),
       combineLatestWith(this.compoundService.query.selectEntity(this.id - 1)),
@@ -58,6 +62,7 @@ export class CompoundInterestLegComponent implements OnInit {
 
     this.runCalc$ = this.form.valueChanges.pipe(
       delay(0),
+      takeUntil(this.destroyed$),
       map(() => this.form.getRawValue()),
       map((formFields) => Object.keys(formFields)
         .reduce((acc, field) => acc && formFields[field as keyof typeof formFields] !== null, true)),

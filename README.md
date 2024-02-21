@@ -11,5 +11,7 @@
 - allow for deleting of simulations
 - revert to previous value on mode change?
 - options for compounding interval
+- options for when additions are made
+- save to csv option
 - chart redraw on resize
 - add tests
