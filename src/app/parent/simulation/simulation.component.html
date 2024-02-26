@@ -1,0 +1,15 @@
+<p-card>
+    <ng-template pTemplate="header">
+        <div class="flex-row">
+            <h2>{{header}}</h2>
+            <p-button label="Add leg"
+                        (click)="addLeg()">
+            </p-button>
+        </div>
+    </ng-template>
+    <ng-container *ngFor="let leg of (legs$ | async); index as i">
+        <app-compound-interest-leg [leg]="leg"
+                                   [index]="i">
+        </app-compound-interest-leg>
+    </ng-container>
+</p-card>

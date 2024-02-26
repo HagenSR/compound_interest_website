@@ -1,0 +1,21 @@
+.flex-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    margin: .25rem;
+    padding: .25rem
+}
+
+:host ::ng-deep .p-card-header {
+    margin: 0rem 0;
+    padding: 0rem;
+}
+
+:host ::ng-deep .p-card-body {
+    margin: .25rem 0;
+    padding: .25rem;
+}
+
+:host ::ng-deep .p-card-content {
+    padding: .25rem 0;
+}

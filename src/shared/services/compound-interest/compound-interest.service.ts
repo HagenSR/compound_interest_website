@@ -2,21 +2,17 @@ import { Injectable } from '@angular/core';
 import { CompoundInterestCalculation } from '../../models/compound-interest-calculation.model';
 import { CompoundInterestResultStore } from './compound-interest-result.store';
 import { CompoundInterestResultQuery } from './compound-interest-result.query';
-import { BehaviorSubject, delay, map } from 'rxjs';
+import { delay, map } from 'rxjs';
 import { YearAndBalance } from 'src/shared/models/year-and-balance.model';
 import { CompoundInterestResult } from 'src/shared/models/compound-interest-result.model';
-import { ModeService } from '../mode/mode.service';
-import { Mode } from 'src/shared/enums/mode.enum';
+import { LegService } from '../leg/leg.service';
 
 @Injectable({ providedIn: 'root' })
 export class CompoundInterestService {
 
-  simulationIds$ = new BehaviorSubject([1])
-  private curId = 2
-
   constructor(private readonly store: CompoundInterestResultStore,
     public readonly query: CompoundInterestResultQuery,
-    private readonly modeService: ModeService) {
+    private readonly legService: LegService) {
   }
 
   chartData$ = this.query.selectAll().pipe(
@@ -38,22 +34,18 @@ export class CompoundInterestService {
     this.store.upsert(vals.id, { ...vals, results: balYears })
   }
 
-  addSimulation() {
-    const curIds = this.simulationIds$.value
-    curIds.push(this.curId)
-    this.curId += 1
-    this.simulationIds$.next(curIds)
+  removeCalculationsForLeg(legId: number){
+    this.store.remove(legId)
   }
 
-  reset() {
+  reset(){
     this.store.reset()
-    this.simulationIds$.next([this.curId++])
   }
 
   private getYear(vals: CompoundInterestCalculation): number {
     let curYear = (new Date()).getFullYear()
-    if (this.modeService.currentMode$.value === Mode.LEG && vals.id > 1) {
-      const prevEnt = this.query.getEntity(vals.id - 1)
+    const prevEnt = this.query.getEntity(this.legService.getParent(vals.id)?.id ?? -1)
+    if (prevEnt !== undefined) {
       curYear = prevEnt!.results[prevEnt!.results.length - 1].year!
     }
     return curYear;

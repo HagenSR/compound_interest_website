@@ -1,10 +1,11 @@
 <div class="flex-col">
     <app-settings></app-settings>
 
-    <ng-container *ngFor="let _ of (ids$ | async); index as i">
-        <app-compound-interest-leg [id]="i + 1"
-                                   class="padding">
-        </app-compound-interest-leg>
+    <ng-container *ngFor="let sim of (sims$ | async); index as i">
+        <app-simulation [simulation]="sim"
+                        [index]="i"
+                        class="padding-bottom-5">
+        </app-simulation>
     </ng-container>
 
     <app-chart></app-chart>

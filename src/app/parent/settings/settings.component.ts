@@ -4,7 +4,8 @@ import { ButtonModule } from 'primeng/button';
 import { DropdownModule } from 'primeng/dropdown';
 import { ToggleButtonModule } from 'primeng/togglebutton';
 import { CompoundInterestService } from 'src/shared/services/compound-interest/compound-interest.service';
-import { ModeService } from 'src/shared/services/mode/mode.service';
+import { LegService } from 'src/shared/services/leg/leg.service';
+import { SimulationService } from 'src/shared/services/simulation/simulation.service';
 import { ThemeService } from 'src/shared/services/theme/theme.service';
 
 @Component({
@@ -16,14 +17,11 @@ import { ThemeService } from 'src/shared/services/theme/theme.service';
 })
 export class SettingsComponent {
 
-  modeForm = this.modeService.form
-  options = this.modeService.options
-
-  constructor(public readonly modeService: ModeService, private compoundService: CompoundInterestService, private readonly themeService: ThemeService) {
+  constructor(private simulationService: SimulationService, private readonly themeService: ThemeService, private readonly legService: LegService, private readonly compService: CompoundInterestService) {
   }
 
   addSimulation() {
-    this.compoundService.addSimulation()
+    this.simulationService.addSimulation()
   }
 
   changeTheme() {
@@ -31,6 +29,8 @@ export class SettingsComponent {
   }
 
   reset() {
-    this.compoundService.reset()
+    this.compService.reset()
+    this.legService.reset()
+    this.simulationService.reset()
   }
 }

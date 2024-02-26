@@ -7,11 +7,15 @@
 - website can be built with `ng build --output-path docs --base-href /compound_interest_website/`
 
 ### TODO
-- fix bug where values don't update on mode change, ancestor value change
 - allow for deleting of simulations
+- deletion of legs
 - revert to previous value on mode change?
 - options for compounding interval
 - options for when additions are made
 - save to csv option
 - chart redraw on resize
 - add tests
+
+## FIXED
+- fix bug where values don't update on mode change, ancestor value change
+- 
