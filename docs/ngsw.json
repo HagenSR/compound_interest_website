@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1709003056641,
+  "timestamp": 1709012178661,
   "index": "/compound_interest_website/index.html",
   "assetGroups": [
     {
@@ -15,7 +15,7 @@
         "/compound_interest_website/favicon.ico",
         "/compound_interest_website/index.html",
         "/compound_interest_website/light_style.css",
-        "/compound_interest_website/main.4d08e9e8dee10460.js",
+        "/compound_interest_website/main.839a9352750aa068.js",
         "/compound_interest_website/manifest.webmanifest",
         "/compound_interest_website/polyfills.49af5d84c7df9d7a.js",
         "/compound_interest_website/runtime.22aa55b4b78473e9.js",
@@ -55,9 +55,9 @@
     "/compound_interest_website/dark_style.css": "531950ca323f6120d02859f256652fed8b664495",
     "/compound_interest_website/favicon.ico": "01e8fda990d3b861629df7467b6f511f301fc98e",
     "/compound_interest_website/hue.8b1818380241e6ac.png": "f81ae627637a684614aa726e206c73ce099a01fd",
-    "/compound_interest_website/index.html": "82f511bcb08df07c185641c835c90af821db5d03",
+    "/compound_interest_website/index.html": "21cf2c977e03b47ad0e3d3303aba897270b40c22",
     "/compound_interest_website/light_style.css": "5eecb9f98e52f1c222a40592941bbc42200f6a12",
-    "/compound_interest_website/main.4d08e9e8dee10460.js": "308b8c53beaafd92b581fd0aad99680b6281dfa9",
+    "/compound_interest_website/main.839a9352750aa068.js": "327d7733532c0b6d92a26578e3972012ed622d69",
     "/compound_interest_website/manifest.webmanifest": "897684ed7bbfe83ffeb606ef1b3df29c9f0172ab",
     "/compound_interest_website/polyfills.49af5d84c7df9d7a.js": "dcdcd44737386de31e9a1a3793ef4fe33220642a",
     "/compound_interest_website/runtime.22aa55b4b78473e9.js": "1e9144c74d5b01e329ddef8c52109f4aada0a9dd",

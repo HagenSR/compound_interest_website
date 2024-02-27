@@ -9,15 +9,18 @@ import { ThemeService } from 'src/shared/services/theme/theme.service';
 import { AboutComponent } from "./dialog-modal/about.component";
 
 @Component({
-    selector: 'app-settings',
-    standalone: true,
-    templateUrl: './settings.component.html',
-    styleUrl: './settings.component.scss',
-    imports: [ReactiveFormsModule, ButtonModule, ToggleButtonModule, AboutComponent]
+  selector: 'app-settings',
+  standalone: true,
+  templateUrl: './settings.component.html',
+  styleUrl: './settings.component.scss',
+  imports: [ReactiveFormsModule, ButtonModule, ToggleButtonModule, AboutComponent]
 })
 export class SettingsComponent {
 
-  constructor(private simulationService: SimulationService, private readonly themeService: ThemeService, private readonly legService: LegService, private readonly compService: CompoundInterestService) {
+  constructor(private simulationService: SimulationService,
+    private readonly themeService: ThemeService,
+    private readonly legService: LegService,
+    private readonly compService: CompoundInterestService) {
   }
 
   addSimulation() {

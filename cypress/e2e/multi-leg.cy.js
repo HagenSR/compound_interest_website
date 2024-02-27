@@ -1,11 +1,11 @@
 /// <reference types="cypress" />
 
-describe('One simulation tests', () => {
+describe('multi leg tests', () => {
     beforeEach(() => {
       cy.visit('http://localhost:4200/')
     })
   
-      it('Attempt with leg', () => {
+      it('Attempt with two legs', () => {
         cy.get('[data-cy="principal-0"]').type("100000")
         cy.get('[data-cy="annual-addition-0"]').type("15000")
         cy.get('[data-cy="years-0"]').type("10")

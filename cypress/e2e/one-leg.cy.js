@@ -1,7 +1,7 @@
 /// <reference types="cypress" />
 
 
-describe('One simulation tests', () => {
+describe('One leg tests', () => {
     beforeEach(() => {
       cy.visit('http://localhost:4200/')
     })
