@@ -14,8 +14,8 @@
 - options for when additions are made
 - save to csv option
 - chart redraw on resize
-- add tests
+
 
 ## FIXED
 - fix bug where values don't update on mode change, ancestor value change
-- 
+- add tests

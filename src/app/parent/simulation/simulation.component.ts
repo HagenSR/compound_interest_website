@@ -21,7 +21,7 @@ export class SimulationComponent extends OnDestroyComponent implements OnInit {
   @Input() simulation!: Simulation
   @Input() index!: number
 
-  header = 'Compounding Interest Simulation '
+  header = 'CI Simulation '
   legs$!: Observable<Leg[]>
 
 

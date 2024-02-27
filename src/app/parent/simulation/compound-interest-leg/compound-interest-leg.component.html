@@ -7,7 +7,8 @@
                      mode="currency"
                      currency="USD"
                      locale="en-US"
-                     formControlName="currentPrincipal">
+                     formControlName="currentPrincipal"
+                     [attr.data-cy]="'principal-' + leg.id">
       </p-inputNumber>
       <label for="current-principal">Current Principal:</label>
     </span>
@@ -17,7 +18,8 @@
                      mode="currency"
                      currency="USD"
                      locale="en-US"
-                     formControlName="annualAddition">
+                     formControlName="annualAddition"
+                     [attr.data-cy]="'annual-addition-' + leg.id">
       </p-inputNumber>
       <label for="annual-addition">Annual Addition</label>
     </span>
@@ -26,7 +28,8 @@
       <p-inputNumber inputId="years"
                      [min]="1"
                      [max]="100"
-                     formControlName="yearsToGrow">
+                     formControlName="yearsToGrow"
+                     [attr.data-cy]="'years-' + leg.id">
       </p-inputNumber>
       <label for="years">Years to grow: </label>
     </span>
@@ -39,12 +42,13 @@
                      [maxFractionDigits]="5"
                      [min]="0"
                      [max]="100"
-                     formControlName="interestRate">
+                     formControlName="interestRate"
+                     [attr.data-cy]="'interest-rate-' + leg.id">
       </p-inputNumber>
       <label for="interest-rate">Interest Rate: </label>
     </span>
 
-    <span style="margin-right: 10px;">
+    <span style="margin-right: 10px;" [attr.data-cy]="'result-' + leg.id">
       Result: {{resultingValue$ | async | currency}}
     </span>
 

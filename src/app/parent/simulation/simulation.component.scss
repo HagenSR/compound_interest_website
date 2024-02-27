@@ -3,7 +3,14 @@
     justify-content: space-between;
     align-items: end;
     margin: .25rem;
-    padding: .25rem
+    padding: .25rem;
+    font-size: 2rem;
+    line-height: 0px;
+}
+
+.block {
+    display: block;
+    padding-bottom: 6px;
 }
 
 :host ::ng-deep .p-card-header {

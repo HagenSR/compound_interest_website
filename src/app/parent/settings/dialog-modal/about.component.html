@@ -1,0 +1,17 @@
+<p-button (click)="showDialog()" label="About" data-cy="about-button"></p-button>
+<p-dialog header="About" [(visible)]="visible" [style]="{ width: '80vw' }" [modal]="true" data-cy="about-modal">
+    <p>
+        This website is for the computation, display and comparison of different compounding interest scenarios or simulations. Different than 
+        most compounding interest calculators is the inclusion of simulations and legs. Each simulation is calculated separately from another and 
+        each simulation can have multiple legs. A leg allows for different rates of saving, interest and duration.
+    </p>
+
+    <p>
+        To operate the website, simply enter valid data into each of the fields. Results will be automatically calculated when all fields are filled.
+        Notice the chart at the bottom of the screen for further comparison of results.
+    </p>
+
+    <p> 
+        This website offers no financial advice, nor guarantee of accuracy. By using this website, you agree to the GNU GENERAL PUBLIC LICENSE.
+    </p>
+</p-dialog>

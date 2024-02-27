@@ -29,7 +29,7 @@ export class CompoundInterestLegComponent extends OnDestroyComponent implements 
     yearsToGrow: undefined,
     interestRate: undefined
   })
-  header = 'Compounding Interest Leg '
+  header = 'Leg '
 
   resultingValue$!: Observable<number | undefined>
   runCalc$!: Subscription

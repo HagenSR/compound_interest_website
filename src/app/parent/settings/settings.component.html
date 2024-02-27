@@ -1,14 +1,18 @@
 <div class="flex-row">
-    <p-button label="Add Simulation"
-              (click)="addSimulation()">
+    <p-button label="+ Simulation"
+              (click)="addSimulation()"
+              data-cy="simulation-add">
     </p-button>
 
     <p-button label="Reset"
-              (click)="reset()">
+              (click)="reset()"
+              data-cy="simulation-reset">
     </p-button>
 
     <p-toggleButton (click)="changeTheme()"
                     onLabel="Light"
                     offLabel="Dark">
     </p-toggleButton>
+
+    <app-about></app-about>
 </div>
