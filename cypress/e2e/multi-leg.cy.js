@@ -16,7 +16,7 @@ describe('multi leg tests', () => {
         cy.get('[data-cy="annual-addition-1"]').type("5001")
         cy.get('[data-cy="years-1"]').type("15")
         cy.get('[data-cy="interest-rate-1"]').type("17")
-        cy.get('[data-cy="result-1"]').contains('Result: $5,533,480.85')
+        cy.get('[data-cy="result-1"]').contains('Result: $5,533,480.94')
       })
   })
   

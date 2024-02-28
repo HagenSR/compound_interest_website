@@ -1,0 +1,13 @@
+<div class="chart-container"
+     *ngIf="shouldShow$ | async">
+    <p-toggleButton [(ngModel)]="checked"
+                    onLabel="Chart"
+                    offLabel="Table">
+    </p-toggleButton>
+    <ng-container *ngIf="checked; else chart">
+        <app-table></app-table>
+    </ng-container>
+    <ng-template #chart>
+        <app-chart></app-chart>
+    </ng-template>
+</div>

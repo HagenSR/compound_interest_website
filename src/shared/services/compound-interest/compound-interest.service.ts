@@ -24,6 +24,17 @@ export class CompoundInterestService {
     })
   )
 
+  tableData$ = this.query.selectAll().pipe(
+    delay(0),
+    map((data) => data.flatMap((row) => row.results.map((res) => {
+      return {
+        simulation: row.id + 1,
+        year: res.year,
+        balance: res.balance
+      }
+    })))
+  )
+
   runCalculationEveryYear(vals: CompoundInterestCalculation) {
     const curYear = this.getYear(vals)
     const balYears: YearAndBalance[] = [{ year: curYear, balance: vals.currentPrincipal! }]
@@ -34,11 +45,11 @@ export class CompoundInterestService {
     this.store.upsert(vals.id, { ...vals, results: balYears })
   }
 
-  removeCalculationsForLeg(legId: number){
+  removeCalculationsForLeg(legId: number) {
     this.store.remove(legId)
   }
 
-  reset(){
+  reset() {
     this.store.reset()
   }
 
@@ -54,7 +65,8 @@ export class CompoundInterestService {
   private runCalculation(vls: CompoundInterestCalculation): number {
     const percent = 1 + ((vls.interestRate! / 100))
     const endBalance = vls.currentPrincipal! * percent
-    return endBalance + vls.annualAddition!
+    const val = endBalance + vls.annualAddition!
+    return Math.round(val * 100) / 100
   }
 
   private getYears(data: CompoundInterestResult[]) {

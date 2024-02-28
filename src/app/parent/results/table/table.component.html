@@ -1,0 +1,47 @@
+<p-table #dt
+         [value]="data$ | async | nullsafeArray"
+         dataKey="simulation"
+         [tableStyle]="{ 'min-width': '50rem' }"
+         [paginator]="true"
+         [rows]="10">
+    <ng-template pTemplate="header">
+        <tr>
+            <th pSortableColumn="simulation">
+                <div class="col-flex">
+                    Simulation
+                    <p-sortIcon field="simulation"></p-sortIcon>
+                    <p-columnFilter type="text"
+                                    field="simulation">
+                    </p-columnFilter>
+                </div>
+            </th>
+            <th pSortableColumn="year">
+                <div class="col-flex">
+                    Year
+                    <p-sortIcon field="year"></p-sortIcon>
+                    <p-columnFilter type="text"
+                                    field="year">
+                    </p-columnFilter>
+                </div>
+
+            </th>
+            <th pSortableColumn="balance">
+                <div class="col-flex">
+                    Balance
+                    <p-sortIcon field="balance"></p-sortIcon>
+                    <p-columnFilter type="text"
+                                    field="balance">
+                    </p-columnFilter>
+                </div>
+            </th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body"
+                 let-row>
+        <tr>
+            <td>{{ row.simulation }}</td>
+            <td>{{ row.year }}</td>
+            <td>{{ row.balance | currency }}</td>
+        </tr>
+    </ng-template>
+</p-table>

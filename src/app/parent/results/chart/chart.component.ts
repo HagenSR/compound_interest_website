@@ -1,7 +1,6 @@
 import { AsyncPipe, CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { ChartModule } from 'primeng/chart';
-import { map } from 'rxjs';
 import { CompoundInterestService } from 'src/shared/services/compound-interest/compound-interest.service';
 
 @Component({
@@ -14,9 +13,6 @@ import { CompoundInterestService } from 'src/shared/services/compound-interest/c
 export class ChartComponent {
 
   data$ = this.compoundService.chartData$
-  shouldShow$ = this.data$.pipe(
-    map((data) => Boolean(data) && data.datasets.length > 0)
-  )
 
   options = {
     title: {
