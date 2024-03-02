@@ -12,10 +12,10 @@
 - revert to previous value on mode change?
 - options for compounding interval
 - options for when additions are made
-- save to csv option
 - chart redraw on resize
 
 
 ## FIXED
 - fix bug where values don't update on mode change, ancestor value change
 - add tests
+- save to csv option

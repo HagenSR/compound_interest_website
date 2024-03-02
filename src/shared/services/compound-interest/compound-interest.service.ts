@@ -28,9 +28,10 @@ export class CompoundInterestService {
     delay(0),
     map((data) => data.flatMap((row) => row.results.map((res) => {
       return {
+        ...row,
         simulation: row.id + 1,
         year: res.year,
-        balance: res.balance
+        balance: res.balance,
       }
     })))
   )

@@ -1,5 +1,11 @@
 .col-flex {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 5px;
 }
+
+@media (max-width: 1200px) {
+    :host ::ng-deep .p-column-filter-row > p-columnfilterformelement {
+        width: 200%;
+    }
+  }

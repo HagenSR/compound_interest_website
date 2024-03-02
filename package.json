@@ -23,6 +23,7 @@
     "@datorama/akita": "^8.0.1",
     "bluebird": "^3.7.2",
     "chart.js": "^4.4.1",
+    "primeicons": "^6.0.1",
     "primeng": "^17.7.0",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",

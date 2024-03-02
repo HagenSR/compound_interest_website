@@ -35,7 +35,9 @@ export class LegService {
   }
 
   private updateParentMap(leg: Leg) {
-    const prev = this.query.getAll().find((pLeg) => pLeg.id !== leg.id && pLeg.simulationId === leg.simulationId && !this.getParent(pLeg.id))?.id
+    const prev = this.query.getAll()
+    .sort((a, b) => b.id - a.id)
+    .find((pLeg) => pLeg.id !== leg.id && pLeg.simulationId === leg.simulationId)?.id
     this.parentMap.set(leg.id, prev);
   }
 }
