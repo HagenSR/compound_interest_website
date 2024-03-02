@@ -24,21 +24,16 @@ export class TableComponent implements OnInit {
   cols: Column[] = [
     { field: 'simulation', header: 'Simulation' },
     { field: 'year', header: 'Year' },
-    { field: 'balance', header: 'Balance', pipeName: 'currency'},
-    { field: 'currentPrincipal', header: 'Current Principal', pipeName: 'currency'},
-    { field: 'annualAddition', header: 'Annual Addition', pipeName: 'currency'},
-    { field: 'interestRate', header: 'Interest Rate', pipeName: 'percent'},
+    { field: 'balance', header: 'Balance', pipeName: 'currency' },
+    { field: 'annualAddition', header: 'Annual Addition', pipeName: 'currency' },
+    { field: 'interestRate', header: 'Interest Rate', pipeName: 'percent' },
   ];
   exportColumns!: ExportColumn[]
-  isMobile = false
 
   constructor(private compoundService: CompoundInterestService) {
   }
   ngOnInit(): void {
     this.exportColumns = this.cols.map((col) => ({ title: col.header, dataKey: col.field }));
-    if (window.screen.width < 1200) {
-      this.isMobile = true;
-    }
   }
 
   applyFilter(event: Event) {

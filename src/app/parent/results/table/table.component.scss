@@ -4,8 +4,6 @@
     gap: 5px;
 }
 
-@media (max-width: 1200px) {
-    :host ::ng-deep .p-column-filter-row > p-columnfilterformelement {
-        width: 200%;
-    }
-  }
+:host ::ng-deep .p-fluid .p-inputtext {
+    min-width: 100px;
+}

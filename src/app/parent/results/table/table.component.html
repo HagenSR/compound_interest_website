@@ -20,14 +20,14 @@
     </ng-template>
     <ng-template pTemplate="header">
         <tr>
-            <th *ngFor="let col of cols"
-                [pSortableColumn]="col.field">
+            <th *ngFor="let col of cols">
                 <div class="col-flex">
                     {{ col.header }}
-                    <p-sortIcon [field]="col.field"></p-sortIcon>
+                    <p-sortIcon [field]="col.field"
+                                [pSortableColumn]="col.field">
+                    </p-sortIcon>
                     <p-columnFilter type="text"
-                                    [field]="col.field"
-                                    [showMenu]="!isMobile">
+                                    [field]="col.field">
                     </p-columnFilter>
                 </div>
             </th>
