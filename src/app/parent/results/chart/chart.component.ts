@@ -4,11 +4,10 @@ import { ChartModule } from 'primeng/chart';
 import { CompoundInterestService } from 'src/shared/services/compound-interest/compound-interest.service';
 
 @Component({
-  selector: 'app-chart',
-  standalone: true,
-  imports: [ChartModule, AsyncPipe, CommonModule],
-  templateUrl: './chart.component.html',
-  styleUrl: './chart.component.scss'
+    selector: 'app-chart',
+    imports: [ChartModule, AsyncPipe, CommonModule],
+    templateUrl: './chart.component.html',
+    styleUrl: './chart.component.scss'
 })
 export class ChartComponent {
 

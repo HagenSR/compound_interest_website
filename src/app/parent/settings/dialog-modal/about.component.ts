@@ -4,7 +4,6 @@ import { DialogModule } from 'primeng/dialog';
 
 @Component({
     selector: 'app-about',
-    standalone: true,
     imports: [DialogModule, ButtonModule],
     templateUrl: './about.component.html',
     styleUrl: './about.component.scss'

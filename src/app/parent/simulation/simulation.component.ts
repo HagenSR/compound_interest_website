@@ -12,11 +12,10 @@ import { Store } from '@ngxs/store';
 import { LegState } from 'src/shared/services/leg/leg.state';
 
 @Component({
-  selector: 'app-simulation',
-  standalone: true,
-  templateUrl: './simulation.component.html',
-  styleUrl: './simulation.component.scss',
-  imports: [CommonModule, CardModule, AsyncPipe, CompoundInterestLegComponent, ButtonModule]
+    selector: 'app-simulation',
+    templateUrl: './simulation.component.html',
+    styleUrl: './simulation.component.scss',
+    imports: [CommonModule, CardModule, AsyncPipe, CompoundInterestLegComponent, ButtonModule]
 })
 export class SimulationComponent extends OnDestroyComponent implements OnInit {
 

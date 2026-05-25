@@ -1,19 +1,21 @@
-import { DOCUMENT } from '@angular/common';
-import { Inject, Injectable } from '@angular/core';
+
+import { Inject, Injectable, DOCUMENT } from '@angular/core';
 
 @Injectable({ providedIn: 'root' })
 export class ThemeService {
 
-  private isLight = false;
+  private isDark = true;
 
   constructor(@Inject(DOCUMENT) private doc: Document) {
+    this.doc.documentElement.classList.add('app-dark');
   }
 
   toggleTheme() {
-    const themeLink = this.doc.getElementById('app-theme') as HTMLLinkElement
-    if (themeLink) {
-      themeLink.href = (this.isLight ? 'dark_style.css' : 'light_style.css')
-      this.isLight = !this.isLight
+    if (this.isDark) {
+      this.doc.documentElement.classList.remove('app-dark');
+    } else {
+      this.doc.documentElement.classList.add('app-dark');
     }
+    this.isDark = !this.isDark;
   }
 }

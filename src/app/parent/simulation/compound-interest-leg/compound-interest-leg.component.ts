@@ -14,11 +14,10 @@ import { Store } from '@ngxs/store';
 import { CompoundInterestResultState } from 'src/shared/services/compound-interest/compound-interest-result.state';
 
 @Component({
-  selector: 'app-compound-interest-leg',
-  standalone: true,
-  imports: [InputNumberModule, CardModule, ReactiveFormsModule, AsyncPipe, CurrencyPipe, PanelModule],
-  templateUrl: './compound-interest-leg.component.html',
-  styleUrl: './compound-interest-leg.component.scss'
+    selector: 'app-compound-interest-leg',
+    imports: [InputNumberModule, CardModule, ReactiveFormsModule, AsyncPipe, CurrencyPipe, PanelModule],
+    templateUrl: './compound-interest-leg.component.html',
+    styleUrl: './compound-interest-leg.component.scss'
 })
 export class CompoundInterestLegComponent extends OnDestroyComponent implements OnInit {
 

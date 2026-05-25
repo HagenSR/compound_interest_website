@@ -9,7 +9,6 @@ import { ChartComponent } from "./chart/chart.component";
 
 @Component({
     selector: 'app-results',
-    standalone: true,
     templateUrl: './results.component.html',
     styleUrl: './results.component.scss',
     imports: [AsyncPipe, CommonModule, TableComponent, ToggleButtonModule, FormsModule, ChartComponent]

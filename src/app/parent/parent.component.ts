@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { CompoundInterestLegComponent } from './simulation/compound-interest-leg/compound-interest-leg.component';
 import { CommonModule } from '@angular/common';
 import { SettingsComponent } from "./settings/settings.component";
 import { SimulationService } from 'src/shared/services/simulation/simulation.service';
@@ -13,10 +12,9 @@ import { Simulation } from 'src/shared/models/simulation';
 
 @Component({
     selector: 'app-parent',
-    standalone: true,
     templateUrl: './parent.component.html',
     styleUrl: './parent.component.scss',
-    imports: [CompoundInterestLegComponent, CommonModule, SettingsComponent, SimulationComponent, ResultsComponent]
+    imports: [CommonModule, SettingsComponent, SimulationComponent, ResultsComponent]
 })
 export class ParentComponent extends OnDestroyComponent implements OnInit {
 

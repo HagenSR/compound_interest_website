@@ -1,7 +1,10 @@
 import { Component, OnDestroy } from "@angular/core";
 import { Subject, Subscription } from "rxjs";
 
-@Component({template: ''})
+@Component({
+    template: '',
+    standalone: false
+})
 export abstract class OnDestroyComponent implements OnDestroy {
     protected destroyed$ = new Subject<boolean>()
     protected subscription = new Subscription()

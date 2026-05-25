@@ -15,11 +15,11 @@
       "prefix": "app",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-angular:browser",
+          "builder": "@angular-devkit/build-angular:application",
           "options": {
             "outputPath": "dist/compound_interest_website",
             "index": "src/index.html",
-            "main": "src/main.ts",
+            "browser": "src/main.ts",
             "polyfills": [
               "zone.js"
             ],
@@ -31,28 +31,17 @@
               "src/manifest.webmanifest"
             ],
             "styles": [
-              "src/styles.scss",
-              {
-                "input": "src/styles/dark_style.scss",
-                "bundleName": "dark_style",
-                "inject": false
-              },
-              {
-                "input": "src/styles/light_style.scss",
-                "bundleName": "light_style",
-                "inject": false
-              }
+              "src/styles.scss"
             ],
             "scripts": [],
-            "serviceWorker": true,
-            "ngswConfigPath": "ngsw-config.json"
+            "serviceWorker": "ngsw-config.json"
           },
           "configurations": {
             "production": {
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "1mb",
+                  "maximumWarning": "2mb",
                   "maximumError": "5mb"
                 },
                 {
@@ -64,9 +53,7 @@
               "outputHashing": "all"
             },
             "development": {
-              "buildOptimizer": false,
               "optimization": false,
-              "vendorChunk": true,
               "extractLicenses": false,
               "sourceMap": true,
               "namedChunks": true
@@ -107,17 +94,7 @@
               "src/manifest.webmanifest"
             ],
             "styles": [
-              "src/styles.scss",
-              {
-                "input": "src/styles/dark_style.scss",
-                "bundleName": "dark_style",
-                "inject": false
-              },
-              {
-                "input": "src/styles/light_style.scss",
-                "bundleName": "light_style",
-                "inject": false
-              }
+              "src/styles.scss"
             ],
             "scripts": []
           }
@@ -138,5 +115,31 @@
     "schematicCollections": [
       "@angular-eslint/schematics"
     ]
+  },
+  "schematics": {
+    "@schematics/angular:component": {
+      "type": "component"
+    },
+    "@schematics/angular:directive": {
+      "type": "directive"
+    },
+    "@schematics/angular:service": {
+      "type": "service"
+    },
+    "@schematics/angular:guard": {
+      "typeSeparator": "."
+    },
+    "@schematics/angular:interceptor": {
+      "typeSeparator": "."
+    },
+    "@schematics/angular:module": {
+      "typeSeparator": "."
+    },
+    "@schematics/angular:pipe": {
+      "typeSeparator": "."
+    },
+    "@schematics/angular:resolver": {
+      "typeSeparator": "."
+    }
   }
 }

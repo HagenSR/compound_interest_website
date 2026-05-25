@@ -9,6 +9,8 @@ import { NgxsModule } from '@ngxs/store';
 import { LegState } from 'src/shared/services/leg/leg.state';
 import { SimulationState } from 'src/shared/services/simulation/simulation.state';
 import { CompoundInterestResultState } from 'src/shared/services/compound-interest/compound-interest-result.state';
+import { providePrimeNG } from 'primeng/config';
+import Aura from '@primeuix/themes/aura';
 
 @NgModule({
   declarations: [
@@ -27,7 +29,14 @@ import { CompoundInterestResultState } from 'src/shared/services/compound-intere
       registrationStrategy: 'registerWhenStable:30000'
     })
   ],
-  providers: [],
+  providers: [
+    providePrimeNG({
+      theme: {
+        preset: Aura,
+        options: { darkModeSelector: '.app-dark' }
+      }
+    })
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

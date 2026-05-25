@@ -1,13 +1,13 @@
 <div class="flex-col">
-    <app-settings></app-settings>
+  <app-settings></app-settings>
 
-    <ng-container *ngFor="let sim of (sims$ | async); index as i">
-        <app-simulation [simulation]="sim"
-                        [index]="i"
-                        class="padding-bottom-5"
-                        [attr.data-cy]="'simulation-' + i">
-        </app-simulation>
-    </ng-container> 
+  @for (sim of (sims$ | async); track sim; let i = $index) {
+    <app-simulation [simulation]="sim"
+      [index]="i"
+      class="padding-bottom-5"
+      [attr.data-cy]="'simulation-' + i">
+    </app-simulation>
+  }
 
-    <app-results></app-results>
+  <app-results></app-results>
 </div>

@@ -9,11 +9,10 @@ import { Column } from 'src/shared/models/column.model';
 import { ExportColumn } from 'src/shared/models/export-column.model';
 
 @Component({
-  selector: 'app-table',
-  standalone: true,
-  templateUrl: './table.component.html',
-  styleUrl: './table.component.scss',
-  imports: [TableModule, AsyncPipe, CommonModule, NullsafeArray, ButtonModule, InputTextModule]
+    selector: 'app-table',
+    templateUrl: './table.component.html',
+    styleUrl: './table.component.scss',
+    imports: [TableModule, AsyncPipe, CommonModule, NullsafeArray, ButtonModule, InputTextModule]
 })
 export class TableComponent implements OnInit {
 

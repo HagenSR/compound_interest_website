@@ -1,17 +1,19 @@
 <p-card>
-    <ng-template pTemplate="header">
-        <div class="flex-row">
-            <p>{{header}}</p> 
-            <p-button label="+ leg"
-                        (click)="addLeg()"
-                        [attr.data-cy]="'leg-add-' + index">
-            </p-button>
-        </div>
-    </ng-template>
-    <ng-container *ngFor="let leg of (legs$ | async); index as i" class="flex-col">
-        <app-compound-interest-leg [leg]="leg"
-                                   [index]="i"
-                                   class="block">
-        </app-compound-interest-leg>
+  <ng-template pTemplate="header">
+    <div class="flex-row">
+      <p>{{header}}</p>
+      <p-button label="+ leg"
+        (click)="addLeg()"
+        [attr.data-cy]="'leg-add-' + index">
+      </p-button>
+    </div>
+  </ng-template>
+  @for (leg of (legs$ | async); track leg; let i = $index) {
+    <ng-container class="flex-col">
+      <app-compound-interest-leg [leg]="leg"
+        [index]="i"
+        class="block">
+      </app-compound-interest-leg>
     </ng-container>
+  }
 </p-card>
