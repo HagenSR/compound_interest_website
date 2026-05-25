@@ -10,6 +10,8 @@ import { OnDestroyComponent } from 'src/shared/ui/subscriber-base-component';
 import { Leg } from 'src/shared/models/leg';
 import { PanelModule } from 'primeng/panel';
 import { LegService } from 'src/shared/services/leg/leg.service';
+import { Store } from '@ngxs/store';
+import { CompoundInterestResultState } from 'src/shared/services/compound-interest/compound-interest-result.state';
 
 @Component({
   selector: 'app-compound-interest-leg',
@@ -34,31 +36,31 @@ export class CompoundInterestLegComponent extends OnDestroyComponent implements 
   resultingValue$!: Observable<number | undefined>
   runCalc$!: Subscription
 
-
   constructor(private readonly formBuilder: FormBuilder,
     private compoundService: CompoundInterestService,
-    private legService: LegService) {
+    private legService: LegService,
+    private readonly store: Store) {
     super()
   }
+
   ngOnInit(): void {
     this.header += this.index + 1
-    this.resultingValue$ = this.compoundService.query.selectEntity(this.leg.id).pipe(
-      map((result) => result?.results[result?.results.length - 1]?.balance),
-    );
+    this.resultingValue$ = this.store.select(CompoundInterestResultState.getResultById(this.leg.id)).pipe(
+      map((result) => result?.results[result.results.length - 1]?.balance),
+    )
 
-    const parent = this.legService.getParent(this.leg.id);
+    const parent = this.legService.getParent(this.leg.id)
     if (parent !== undefined) {
-      this.compoundService.query.selectEntity(parent.id).pipe(
+      this.store.select(CompoundInterestResultState.getResultById(parent.id)).pipe(
         takeUntil(this.destroyed$),
         delay(0),
-        startWith(this.compoundService.query.getEntity(parent.id)),
+        startWith(this.store.selectSnapshot(CompoundInterestResultState.getResultById(parent.id))),
         tap((prevEnt) => {
           this.form.get('currentPrincipal')?.setValue(prevEnt?.results[prevEnt?.results.length - 1].balance)
           this.form.get('currentPrincipal')?.disable()
-        }
-        )).subscribe()
+        })
+      ).subscribe()
     }
-
 
     this.runCalc$ = this.form.valueChanges.pipe(
       delay(0),
@@ -70,6 +72,4 @@ export class CompoundInterestLegComponent extends OnDestroyComponent implements 
       tap(() => this.compoundService.runCalculationEveryYear({ ...this.form.getRawValue(), id: this.leg.id } as CompoundInterestCalculation))
     ).subscribe()
   }
-
 }
-
