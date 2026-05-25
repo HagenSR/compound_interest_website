@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, inject } from '@angular/core';
 import { CardModule } from 'primeng/card';
 import { AsyncPipe, CommonModule } from '@angular/common';
 import { OnDestroyComponent } from 'src/shared/ui/subscriber-base-component';
@@ -18,16 +18,15 @@ import { LegState } from 'src/shared/services/leg/leg.state';
     imports: [CommonModule, CardModule, AsyncPipe, CompoundInterestLegComponent, ButtonModule]
 })
 export class SimulationComponent extends OnDestroyComponent implements OnInit {
+  readonly legService = inject(LegService);
+  private readonly store = inject(Store);
+
 
   @Input() simulation!: Simulation
   @Input() index!: number
 
   header = 'CI Simulation '
   legs$!: Observable<Leg[]>
-
-  constructor(readonly legService: LegService, private readonly store: Store) {
-    super()
-  }
 
   ngOnInit(): void {
     this.header += this.index + 1

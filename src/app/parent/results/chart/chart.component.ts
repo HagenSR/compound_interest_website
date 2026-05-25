@@ -1,5 +1,5 @@
 import { AsyncPipe, CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { ChartModule } from 'primeng/chart';
 import { CompoundInterestService } from 'src/shared/services/compound-interest/compound-interest.service';
 
@@ -10,6 +10,8 @@ import { CompoundInterestService } from 'src/shared/services/compound-interest/c
     styleUrl: './chart.component.scss'
 })
 export class ChartComponent {
+  private compoundService = inject(CompoundInterestService);
+
 
   data$ = this.compoundService.chartData$
 
@@ -23,7 +25,4 @@ export class ChartComponent {
       position: 'bottom'
     }
   };
-
-  constructor(private compoundService: CompoundInterestService) {
-  }
 }

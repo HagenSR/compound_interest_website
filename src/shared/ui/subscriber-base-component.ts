@@ -3,7 +3,7 @@ import { Subject, Subscription } from "rxjs";
 
 @Component({
     template: '',
-    standalone: false
+
 })
 export abstract class OnDestroyComponent implements OnDestroy {
     protected destroyed$ = new Subject<boolean>()

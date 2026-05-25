@@ -1,16 +1,16 @@
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { Store } from '@ngxs/store';
 import { Leg } from 'src/shared/models/leg';
 import { LegState } from './leg.state';
-import { AddLeg, RemoveLeg, RemoveLegsForSimulation, ResetLegs } from './leg.actions';
+import { AddLeg, RemoveLegsForSimulation, ResetLegs } from './leg.actions';
 
 @Injectable({ providedIn: 'root' })
 export class LegService {
+  private readonly store = inject(Store);
+
 
   private curLegId = 0;
   private parentMap: Map<number, number | undefined> = new Map();
-
-  constructor(private readonly store: Store) {}
 
   addLeg(leg: Leg) {
     const newLeg = { ...leg, id: this.curLegId };

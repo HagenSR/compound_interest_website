@@ -1,12 +1,14 @@
 
-import { Inject, Injectable, DOCUMENT } from '@angular/core';
+import { Injectable, DOCUMENT, inject } from '@angular/core';
 
 @Injectable({ providedIn: 'root' })
 export class ThemeService {
+  private doc = inject<Document>(DOCUMENT);
+
 
   private isDark = true;
 
-  constructor(@Inject(DOCUMENT) private doc: Document) {
+  constructor() {
     this.doc.documentElement.classList.add('app-dark');
   }
 

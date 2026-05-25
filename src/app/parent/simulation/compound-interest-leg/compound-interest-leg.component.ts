@@ -1,6 +1,7 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, inject } from '@angular/core';
 import { InputNumberModule } from 'primeng/inputnumber';
 import { CardModule } from 'primeng/card';
+import { FloatLabelModule } from 'primeng/floatlabel';
 import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
 import { Observable, filter, map, tap, startWith, Subscription, delay, takeUntil } from 'rxjs';
 import { CompoundInterestCalculation } from 'src/shared/models/compound-interest-calculation.model';
@@ -15,11 +16,16 @@ import { CompoundInterestResultState } from 'src/shared/services/compound-intere
 
 @Component({
     selector: 'app-compound-interest-leg',
-    imports: [InputNumberModule, CardModule, ReactiveFormsModule, AsyncPipe, CurrencyPipe, PanelModule],
+    imports: [InputNumberModule, CardModule, FloatLabelModule, ReactiveFormsModule, AsyncPipe, CurrencyPipe, PanelModule],
     templateUrl: './compound-interest-leg.component.html',
     styleUrl: './compound-interest-leg.component.scss'
 })
 export class CompoundInterestLegComponent extends OnDestroyComponent implements OnInit {
+  private readonly formBuilder = inject(FormBuilder);
+  private compoundService = inject(CompoundInterestService);
+  private legService = inject(LegService);
+  private readonly store = inject(Store);
+
 
   @Input() leg!: Leg
   @Input() index!: number
@@ -34,13 +40,6 @@ export class CompoundInterestLegComponent extends OnDestroyComponent implements 
 
   resultingValue$!: Observable<number | undefined>
   runCalc$!: Subscription
-
-  constructor(private readonly formBuilder: FormBuilder,
-    private compoundService: CompoundInterestService,
-    private legService: LegService,
-    private readonly store: Store) {
-    super()
-  }
 
   ngOnInit(): void {
     this.header += this.index + 1

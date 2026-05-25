@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ButtonModule } from 'primeng/button';
 import { ToggleButtonModule } from 'primeng/togglebutton';
@@ -15,12 +15,11 @@ import { AboutComponent } from "./dialog-modal/about.component";
     imports: [ReactiveFormsModule, ButtonModule, ToggleButtonModule, AboutComponent]
 })
 export class SettingsComponent {
+  private simulationService = inject(SimulationService);
+  private readonly themeService = inject(ThemeService);
+  private readonly legService = inject(LegService);
+  private readonly compService = inject(CompoundInterestService);
 
-  constructor(private simulationService: SimulationService,
-    private readonly themeService: ThemeService,
-    private readonly legService: LegService,
-    private readonly compService: CompoundInterestService) {
-  }
 
   addSimulation() {
     this.simulationService.addSimulation()

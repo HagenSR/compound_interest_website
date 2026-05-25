@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SettingsComponent } from "./settings/settings.component";
 import { SimulationService } from 'src/shared/services/simulation/simulation.service';
@@ -17,12 +17,10 @@ import { Simulation } from 'src/shared/models/simulation';
     imports: [CommonModule, SettingsComponent, SimulationComponent, ResultsComponent]
 })
 export class ParentComponent extends OnDestroyComponent implements OnInit {
+  private simulationService = inject(SimulationService);
+
 
   @Select(SimulationState.getAllSimulations) sims$!: Observable<Simulation[]>
-
-  constructor(private simulationService: SimulationService) {
-    super()
-  }
 
   ngOnInit(): void {
     this.sims$.pipe(

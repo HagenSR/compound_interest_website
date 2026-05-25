@@ -2,8 +2,7 @@
   <div class="wrapper m-0"
        [formGroup]="form">
 
-    <span class="p-float-label">
-      <label for="current-principal">Current Principal:</label>
+    <p-floatLabel>
       <p-inputNumber inputId="current-principal"
                      mode="currency"
                      currency="USD"
@@ -11,10 +10,10 @@
                      formControlName="currentPrincipal"
                      [attr.data-cy]="'principal-' + leg.id">
       </p-inputNumber>
-    </span>
+      <label for="current-principal">Current Principal</label>
+    </p-floatLabel>
 
-    <span class="p-float-label">
-      <label for="annual-addition">Annual Addition</label>
+    <p-floatLabel>
       <p-inputNumber inputId="annual-addition"
                      mode="currency"
                      currency="USD"
@@ -22,20 +21,20 @@
                      formControlName="annualAddition"
                      [attr.data-cy]="'annual-addition-' + leg.id">
       </p-inputNumber>
-    </span>
+      <label for="annual-addition">Annual Addition</label>
+    </p-floatLabel>
 
-    <span class="p-float-label">
-      <label for="years">Years to grow: </label>
+    <p-floatLabel>
       <p-inputNumber inputId="years"
                      [min]="1"
                      [max]="100"
                      formControlName="yearsToGrow"
                      [attr.data-cy]="'years-' + leg.id">
       </p-inputNumber>
-    </span>
+      <label for="years">Years to Grow</label>
+    </p-floatLabel>
 
-    <span class="p-float-label">
-      <label for="interest-rate">Interest Rate: </label>
+    <p-floatLabel>
       <p-inputNumber inputId="interest-rate"
                      prefix="%"
                      mode="decimal"
@@ -46,7 +45,8 @@
                      formControlName="interestRate"
                      [attr.data-cy]="'interest-rate-' + leg.id">
       </p-inputNumber>
-    </span>
+      <label for="interest-rate">Interest Rate</label>
+    </p-floatLabel>
 
     <span style="margin-right: 10px;" [attr.data-cy]="'result-' + leg.id">
       Result: {{resultingValue$ | async | currency}}

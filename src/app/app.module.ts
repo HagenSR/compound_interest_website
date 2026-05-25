@@ -13,11 +13,9 @@ import { providePrimeNG } from 'primeng/config';
 import Aura from '@primeuix/themes/aura';
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
   imports: [
     BrowserModule,
+    AppComponent,
     BrowserAnimationsModule,
     AppRoutingModule,
     ParentComponent,

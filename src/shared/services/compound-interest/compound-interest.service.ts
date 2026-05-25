@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { Store } from '@ngxs/store';
 import { CompoundInterestCalculation } from '../../models/compound-interest-calculation.model';
 import { CompoundInterestResultState } from './compound-interest-result.state';
@@ -10,9 +10,9 @@ import { LegService } from '../leg/leg.service';
 
 @Injectable({ providedIn: 'root' })
 export class CompoundInterestService {
+  private readonly store = inject(Store);
+  private readonly legService = inject(LegService);
 
-  constructor(private readonly store: Store,
-    private readonly legService: LegService) {}
 
   chartData$ = this.store.select(CompoundInterestResultState.getAllResults).pipe(
     delay(0),

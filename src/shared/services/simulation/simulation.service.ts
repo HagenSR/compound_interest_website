@@ -1,15 +1,17 @@
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { Store } from '@ngxs/store';
 import { LegService } from '../leg/leg.service';
 import { AddSimulation, ResetSimulations } from './simulation.actions';
 
 @Injectable({ providedIn: 'root' })
 export class SimulationService {
+  private readonly store = inject(Store);
+  private readonly legService = inject(LegService);
+
 
   private curSimId = 0;
 
-  constructor(private readonly store: Store,
-    private readonly legService: LegService) {
+  constructor() {
     this.addSimulation();
   }
 

@@ -1,5 +1,5 @@
 import { AsyncPipe, CommonModule } from '@angular/common';
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, inject } from '@angular/core';
 import { CompoundInterestService } from 'src/shared/services/compound-interest/compound-interest.service';
 import { Table, TableModule } from 'primeng/table';
 import { NullsafeArray } from "../../../../shared/pipes/nullsafeArray.pipe";
@@ -15,6 +15,8 @@ import { ExportColumn } from 'src/shared/models/export-column.model';
     imports: [TableModule, AsyncPipe, CommonModule, NullsafeArray, ButtonModule, InputTextModule]
 })
 export class TableComponent implements OnInit {
+  private compoundService = inject(CompoundInterestService);
+
 
   @ViewChild(Table) table!: Table;
 
@@ -28,9 +30,6 @@ export class TableComponent implements OnInit {
     { field: 'interestRate', header: 'Interest Rate', pipeName: 'percent' },
   ];
   exportColumns!: ExportColumn[]
-
-  constructor(private compoundService: CompoundInterestService) {
-  }
   ngOnInit(): void {
     this.exportColumns = this.cols.map((col) => ({ title: col.header, dataKey: col.field }));
   }
