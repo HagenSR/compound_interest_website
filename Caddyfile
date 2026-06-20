@@ -1,0 +1,23 @@
+hagensr.com {
+    handle /my_app/* {
+        reverse_proxy 192.168.0.70:8081
+    }
+    handle /primes* {
+        reverse_proxy 192.168.0.70:8083
+    }
+    handle /kalshi* {
+        reverse_proxy 192.168.0.70:8082
+    }
+    handle /blog* {
+        reverse_proxy 192.168.0.70:8005
+    }
+    handle_path /compound_interest_website/* {
+        root * /absolute/path/to/compound_interest_website/browser
+        encode gzip
+        try_files {path} /index.html
+        file_server
+    }
+    handle /* {
+        reverse_proxy 192.168.0.70:8006
+    }
+}
