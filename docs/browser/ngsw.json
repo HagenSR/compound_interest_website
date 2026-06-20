@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1709391006825,
+  "timestamp": 1781967919450,
   "index": "/compound_interest_website/index.html",
   "assetGroups": [
     {
@@ -11,15 +11,12 @@
         "ignoreVary": true
       },
       "urls": [
-        "/compound_interest_website/dark_style.css",
         "/compound_interest_website/favicon.ico",
         "/compound_interest_website/index.html",
-        "/compound_interest_website/light_style.css",
-        "/compound_interest_website/main.9ae73a03c29d39b2.js",
+        "/compound_interest_website/main-RJQDZJ44.js",
         "/compound_interest_website/manifest.webmanifest",
-        "/compound_interest_website/polyfills.49af5d84c7df9d7a.js",
-        "/compound_interest_website/runtime.22aa55b4b78473e9.js",
-        "/compound_interest_website/styles.fb78355182a591d2.css"
+        "/compound_interest_website/polyfills-5CFQRCPP.js",
+        "/compound_interest_website/styles-SAWT6FSL.css"
       ],
       "patterns": []
     },
@@ -36,13 +33,7 @@
         "/compound_interest_website/assets/icons/apple-touch-icon.png",
         "/compound_interest_website/assets/icons/favicon-16x16.png",
         "/compound_interest_website/assets/icons/favicon-32x32.png",
-        "/compound_interest_website/assets/icons/favicon.ico",
-        "/compound_interest_website/color.dae87a04d07ca92b.png",
-        "/compound_interest_website/hue.8b1818380241e6ac.png",
-        "/compound_interest_website/primeicons.0112589c5695a9ed.ttf",
-        "/compound_interest_website/primeicons.943ab24c43224d29.svg",
-        "/compound_interest_website/primeicons.ba3f916dfb64be8c.woff2",
-        "/compound_interest_website/primeicons.f8b9e8a4e401b603.woff"
+        "/compound_interest_website/assets/icons/favicon.ico"
       ],
       "patterns": []
     }
@@ -55,21 +46,12 @@
     "/compound_interest_website/assets/icons/favicon-16x16.png": "737f31d5255c71c316a822b4fa8ef31e2dc75e9b",
     "/compound_interest_website/assets/icons/favicon-32x32.png": "20c7ec97697f61cd25b6ce4d2343e63e8dca861d",
     "/compound_interest_website/assets/icons/favicon.ico": "01e8fda990d3b861629df7467b6f511f301fc98e",
-    "/compound_interest_website/color.dae87a04d07ca92b.png": "ff4c4bcb2207891b292f544edb4da9d2df5d45cf",
-    "/compound_interest_website/dark_style.css": "531950ca323f6120d02859f256652fed8b664495",
     "/compound_interest_website/favicon.ico": "01e8fda990d3b861629df7467b6f511f301fc98e",
-    "/compound_interest_website/hue.8b1818380241e6ac.png": "f81ae627637a684614aa726e206c73ce099a01fd",
-    "/compound_interest_website/index.html": "b6a095b6852ee6dc04518ce069de4ed1ad65d3da",
-    "/compound_interest_website/light_style.css": "5eecb9f98e52f1c222a40592941bbc42200f6a12",
-    "/compound_interest_website/main.9ae73a03c29d39b2.js": "21afeab162ea01023f14fe0cc6014da6b2d955c5",
+    "/compound_interest_website/index.html": "bdab1da41fdf30717d5edd939f0423d8829e57be",
+    "/compound_interest_website/main-RJQDZJ44.js": "a9e7ead759b370dcdac09d47f0cd710cf3e666cd",
     "/compound_interest_website/manifest.webmanifest": "897684ed7bbfe83ffeb606ef1b3df29c9f0172ab",
-    "/compound_interest_website/polyfills.49af5d84c7df9d7a.js": "dcdcd44737386de31e9a1a3793ef4fe33220642a",
-    "/compound_interest_website/primeicons.0112589c5695a9ed.ttf": "ceeb46d594fde5cc507cdf8b70e38e78fe47653c",
-    "/compound_interest_website/primeicons.943ab24c43224d29.svg": "d3332a45242b8f6edbf3f3c7176a280e7edcd961",
-    "/compound_interest_website/primeicons.ba3f916dfb64be8c.woff2": "55a4b2a5f02e362405d8d874903af0b5f6a6c15d",
-    "/compound_interest_website/primeicons.f8b9e8a4e401b603.woff": "b1648b50be13350fde8b5d9a6fe78354ddcc43e4",
-    "/compound_interest_website/runtime.22aa55b4b78473e9.js": "1e9144c74d5b01e329ddef8c52109f4aada0a9dd",
-    "/compound_interest_website/styles.fb78355182a591d2.css": "0f4097a433a591de2204546b05aed7ab947527a2"
+    "/compound_interest_website/polyfills-5CFQRCPP.js": "f2241e9a25858f895ce299d15f6f22e849e2fd72",
+    "/compound_interest_website/styles-SAWT6FSL.css": "d042b83218582ebddd847bc959801d0303fdd9e2"
   },
   "navigationUrls": [
     {
